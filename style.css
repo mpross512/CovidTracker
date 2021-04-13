@@ -3,6 +3,11 @@ body {
     display: block;
 }
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 #navbar {
     width: 100%;
     height: 50px;
@@ -28,10 +33,17 @@ body {
 #map {
     width: 100%;
     margin-top: 20px;
+    overflow: hidden;
+    display: inline-flex;
 }
 
 #map img {
-    width: 50%;
+    width: 65%;
+}
+
+#infobox {
+    border-style: solid;
+    display: inline-block;
 }
 
 #graph {
@@ -39,5 +51,6 @@ body {
     background-color: lightgray;
     width: 100%;
     text-align: center;
-    height: 500px;
+    min-height: 500px;
+    padding: 30px
 }
