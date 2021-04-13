@@ -16,7 +16,7 @@
 
 
         <div id="searchbar">
-            <input type="text" placeholder="Search">
+            <input id="searchbox" type="text" placeholder="tx">
         </div>
 
 
@@ -43,22 +43,31 @@
 
         $(function(){
 
-            var requestOptions = {
-                method: 'GET',
-                redirect: 'follow'
-            };
+            populateData("tx");
+        
+        });
 
-            fetch("https://api.covidtracking.com/v1/states/tx/current.json")
+        function populateData(state) {
+            fetch(`https://api.covidtracking.com/v1/states/${state}/current.json`)
                 .then(function (response) {
                     return response.json();
                 })
                 .then(function (data) {
+                    $("#infobox").empty();
                     $("#infobox").append(`<h1>${data.state}</h1>`)
                     $("#infobox").append(`<h3>Cases: ${data.positive}</h3>`)
                     $("#infobox").append(`<h3>Recovered: ${data.recovered}</h3>`) 
                     $("#infobox").append(`<h3>Deaths: ${data.death}</h3>`)
                 })
                 .catch(error => console.log('error', error));
+        }
+
+        $("#searchbox").keydown(function (e) {
+            if(e.key === 'Enter') {
+                populateData($("#searchbox").val());
+                $("#searchbox").val("");
+                return false;
+            }
         });
 
     </script>
