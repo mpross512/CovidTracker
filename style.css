@@ -8,6 +8,10 @@ a {
     color: black;
 }
 
+.cmm-usa-state-tx path{
+    fill: red;
+}
+
 #navbar {
     width: 100%;
     height: 50px;
