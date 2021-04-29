@@ -9,7 +9,16 @@ a {
 }
 
 .cmm-usa-state-tx path{
-    fill: red;
+    
+}
+
+label, select {
+    font-size: 36px;
+}
+
+select {
+    padding: 10px;
+    margin: 10px;
 }
 
 #navbar {
