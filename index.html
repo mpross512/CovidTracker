@@ -20,17 +20,13 @@
 
 
         <div id="searchbar">
-<<<<<<< HEAD
-            <input id="searchbox" type="text" placeholder="Search">
-=======
             <label for="sort">Sort by:</label>
             <select name="sort">
                 <option value="cases">Cases</option>
                 <option value="deaths">Deaths</option>
                 <option value="recovered">Recovered</option>
             </select>
-            <input id="searchbox" type="text" placeholder="tx">
->>>>>>> e91a6e8172e01c1e09bf9ef9cc18da3fe95ba88f
+            <input id="searchbox" type="text" placeholder="Search">
         </div>
 
 
@@ -184,8 +180,7 @@
         var recoveries = {};
         var maxRecoveries = data[0].recovered, minRecoveries = data[0].recovered;
 
-        function populateData(state) {
-<<<<<<< HEAD
+                function populateData(state) {
 		state = state.toUpperCase();
 		var h = new Object(); // or just {}
 		//Alabama
@@ -341,12 +336,7 @@
 
 		state = h[state];
                 for(var i = 0; i < 50; i++) {
-			//$("#infobox").append(`<h1>${state}</h1>`)
-                    if(data[i].state == state) {
-=======
-                for(var i = 0; i < 50; i++) {
                     if(data[i].state == state.toUpperCase()) {
->>>>>>> e91a6e8172e01c1e09bf9ef9cc18da3fe95ba88f
                         $("#infobox").empty();
                         $("#infobox").append(`<h1>${data[i].state.toUpperCase()}</h1>`)
                         $("#infobox").append(`<h3>Cases: ${data[i].positive}</h3>`)
