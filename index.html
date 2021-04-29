@@ -26,7 +26,7 @@
                 <option value="deaths">Deaths</option>
                 <option value="recovered">Recovered</option>
             </select>
-            <input id="searchbox" type="text" placeholder="tx">
+            <input id="searchbox" type="text" placeholder="Search">
         </div>
 
 
@@ -177,7 +177,161 @@
         var recoveries = {};
         var maxRecoveries = data[1].recovered, minRecoveries = data[1].recovered;
 
-        function populateData(state) {
+                function populateData(state) {
+		state = state.toUpperCase();
+		var h = new Object(); // or just {}
+		//Alabama
+		h['ALABAMA'] = 'AL';
+		h['AL'] = 'AL';
+		//Alaska
+		h['ALASKA'] = 'AK';
+		h['AK'] = 'AK';
+		//Arizona
+		h['ARIZONA'] = 'AZ';
+		h['AZ'] = 'AZ';
+		//Arkansas
+		h['ARKANSAS'] = 'AR';
+		h['AR'] = 'AR';
+		//California
+		h['CALIFORNIA'] = 'CA';
+		h['CA'] = 'CA';
+		//Colorado
+		h['COLORADO'] = 'CO';
+		h['CO'] = 'CO';
+		//Connecticut
+		h['CONNECTICUT'] = 'CT';
+		h['CT'] = 'CT';
+		//Delaware
+		h['DELAWARE'] = 'DE';
+		h['DE'] = 'DE';
+		//Florida
+		h['FLORIDA'] = 'FL';
+		h['FL'] = 'FL';
+		//Georgia
+		h['GEORGIA'] = 'GA';
+		h['GA'] = 'GA';
+		//Hawaii
+		h['HAWAII'] = 'HI';
+		h['HI'] = 'HI';
+		//Idaho
+		h['IDAHO'] = 'ID';
+		h['ID'] = 'ID';
+		//Illinois
+		h['ILLINOIS'] = 'IL';
+		h['IL'] = 'IL';
+		//Indiana
+		h['INDIANA'] = 'IN';
+		h['IN'] = 'IN';
+		//Iowa
+		h['IOWA'] = 'IA';
+		h['IA'] = 'IA';
+		//Kansas
+		h['KANSAS'] = 'KS';
+		h['KS'] = 'KS';
+		//Kentucky
+		h['KENTUCKY'] = 'KY';
+		h['KY'] = 'KY';
+		//Louisiana
+		h['LOUISIANA'] = 'LA';
+		h['LA'] = 'LA';
+		//Maine
+		h['MAINE'] = 'ME';
+		h['ME'] = 'ME';
+		//Maryland
+		h['MARYLAND'] = 'MD';
+		h['MD'] = 'MD';
+		//Massachusetts
+		h['MASSACHUSETTS'] = 'MA';
+		h['MA'] = 'MA';
+		//Michigan
+		h['MICHIGAN'] = 'MI';
+		h['MI'] = 'MI';
+		//Minnesota
+		h['MINNESOTA'] = 'MN';
+		h['MN'] = 'MN';
+		//Mississippi
+		h['MISSISSIPPI'] = 'MS';
+		h['MS'] = 'MS';
+		//Missouri
+		h['MISSOURI'] = 'MO';
+		h['MO'] = 'MO';
+		//Montana
+		h['MONTANA'] = 'MT';
+		h['MT'] = 'MT';
+		//Nebraska
+		h['NEBRASKA'] = 'NE';
+		h['NE'] = 'NE';
+		//Nevada
+		h['NEVADA'] = 'NV';
+		h['NV'] = 'NV';
+		//New Hampshire
+		h['NEW HAMPSHIRE'] = 'NH';
+		h['NH'] = 'NH';
+		//New Jersey
+		h['NEW JERSEY'] = 'NJ';
+		h['NJ'] = 'NJ';
+		//New Mexico
+		h['NEW MEXICO'] = 'NM';
+		h['NM'] = 'NM';
+		//New York
+		h['NEW YORK'] = 'NY';
+		h['NY'] = 'NY';
+		//North Carolina
+		h['NORTH CAROLINA'] = 'NC';
+		h['NC'] = 'NC';
+		//North Dakota
+		h['NORTH DAKOTA'] = 'ND';
+		h['ND'] = 'ND';
+		//Ohio
+		h['OHIO'] = 'OH';
+		h['OH'] = 'OH';
+		//Oklahoma
+		h['OKLAHOMA'] = 'OK';
+		h['OK'] = 'OK';
+		//Oregon
+		h['OREGON'] = 'OR';
+		h['OR'] = 'OR';
+		//Pennsylvania
+		h['PENNSYLVANIA'] = 'PA';
+		h['PA'] = 'PA';
+		//Rhode Island
+		h['RHODE ISLAND'] = 'RI';
+		h['RI'] = 'RI';
+		//South Carolina
+		h['SOUTH CAROLINA'] = 'SC';
+		h['SC'] = 'SC';
+		//South Dakota
+		h['SOUTH DAKOTA'] = 'SD';
+		h['SD'] = 'SD';
+		//Tennessee
+		h['TENNESSEE'] = 'TN';
+		h['TN'] = 'TN';
+		//Texas
+		h['TEXAS'] = 'TX';
+		h['TX'] = 'TX';
+		//Utah
+		h['UTAH'] = 'UT';
+		h['UT'] = 'UT';
+		//Vermont
+		h['VERMONT'] = 'VT';
+		h['VT'] = 'VT';
+		//Virginia
+		h['VIRGINIA'] = 'VA';
+		h['VA'] = 'VA';
+		//Washington
+		h['WASHINGTON'] = 'WA';
+		h['WA'] = 'WA';
+		//West Virginia
+		h['WEST VIRGINIA'] = 'WV';
+		h['WV'] = 'WV';
+		//Wisconsin
+		h['WISCONSIN'] = 'WI';
+		h['WI'] = 'WI';
+		//Wyoming
+		h['WYOMING'] = 'WY';
+		h['WY'] = 'WY';
+
+		state = h[state];
                 for(var i = 0; i < 50; i++) {
                     if(data[i].state == state.toUpperCase()) {
                         $("#infobox").empty();
