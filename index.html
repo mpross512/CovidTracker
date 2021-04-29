@@ -160,13 +160,10 @@
 
         $(document).on('change', 'select', function() {
             if($(this).val() == "cases") {
-                console.log("cases");
                 colorMap(positiveCases, minPos, maxPos);
             } else if($(this).val() == "deaths") {
-                console.log("deaths");
                 colorMap(deaths, minDeaths, maxDeaths);
             } else if($(this).val() == "recovered") {
-                console.log("recoveries");
                 colorMap(recoveries, minRecoveries, maxRecoveries);
             }
         });
@@ -178,7 +175,7 @@
         var maxDeaths = data[0].death, minDeaths = data[0].death;
 
         var recoveries = {};
-        var maxRecoveries = data[0].recovered, minRecoveries = data[0].recovered;
+        var maxRecoveries = data[1].recovered, minRecoveries = data[1].recovered;
 
         function populateData(state) {
                 for(var i = 0; i < 50; i++) {
@@ -207,7 +204,7 @@
                     minDeaths = data[i].death
 
                 recoveries[data[i].state] = data[i].recovered;
-                if(data[i].recovered != null) {
+                if(recoveries[data[i].state] != null) {
                     if(data[i].recovered > maxRecoveries)
                         maxRecoveries = data[i].death;
                     if(data[i].recovered < minRecoveries)
@@ -223,12 +220,10 @@
             var three = two + increment;
             var four = three + increment;
             var five = four + increment;
-            console.log("Max: " + max + " Min: " + min + " One: " + one + " Increment: " + increment);
             for(i = 0; i < 50; i++) {
                 value = values[data[i].state];
                 if(value >= min && value < one) {
                     $(".cmm-usa-state-" + data[i].state.toLowerCase()).find("path").css("fill", "#e6f0ff");
-                    console.log(data[i].state)
                 }
                 if(value >= one && value < two) {
                     $(".cmm-usa-state-" + data[i].state.toLowerCase()).find("path").css("fill", "#80b3ff");
